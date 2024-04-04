@@ -32,7 +32,7 @@ class UserResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('password')
                     ->password()
-                    ->required(),
+                    ->required(fn ($context): bool => $context === 'create'),
             ]);
     }
 
